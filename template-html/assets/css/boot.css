@@ -1,0 +1,137 @@
+/**
+Import google fonts
+**/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+/**
+defalt format
+**/
+*{
+	margin: 0;
+	padding: 0;
+	outline: none;
+
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+/**
+root config
+**/
+:root{
+	--color-blue: #2574ba;
+	--color-red:  #d80505;
+	--color-green:#008d36;
+	--color-grey: #8a949b;
+	--color-grey-light:#d6d6d2;
+	--color-grey-extra-light:#ededec;
+	--color-orange:#e16f0d;
+	--color-black-light:#505050;
+	--color-black: #000000;
+
+	--index-back: -1;
+    --index-fold: 2;
+    --index-menu: 3;
+    --index-modal: 4;
+
+    --hover-red: #c30707;
+
+}
+
+body{
+	font-family: "Roboto", sans-serif;
+	font-size: 1em;
+	font-weight: 400;
+}
+/**
+clear
+**/
+ul{list-style: none;}
+a{text-decoration: none;}
+button{border: none;}
+
+.main-container{
+	width: 100%;
+}
+
+.container{
+	width: 90%;
+	margin: 0 auto;
+}
+
+/**
+elements
+**/
+img {
+    max-width: 100%;
+}
+
+img a {
+    border: none;
+}
+
+embed,
+video,
+iframe,
+iframe[style] {
+    max-width: 100%;
+    height: auto;
+}
+
+.embed {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.embed iframe, .embed object, .embed embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+    -webkit-text-fill-color: #555555 !important;
+}
+
+/*ICONS NORMALIZE*/
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+    position: relative !important;
+    top: .125em !Important;
+    margin-right: .4em !Important;
+}
+
+.icon-notext:before {
+    top: 0;
+    margin-right: 0 !important;;
+}
+
+/**
+flex
+**/
+.flex-container{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.flex{
+	display: flex;
+}
+
+.wrap{
+	flex-wrap: wrap;
+}
+
+.no-wrap{
+	flex-wrap: nowrap;
+}
+
