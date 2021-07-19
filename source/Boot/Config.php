@@ -18,7 +18,7 @@ define("CONF_URL_TEST", "https://www.localhost/site-goiania");
  * SITE
  */
 
-define("CONF_SITE_NAME", "");
+define("CONF_SITE_NAME", "Goiania Tendas");
 define("CONF_SITE_TITLE", "sub title");
 define("CONF_SITE_DESC", "");
 define("CONF_SITE_LANG", "pt_BR");
@@ -84,12 +84,12 @@ define("CONF_IMAGE_QUALITY", ["jpg" => 75, "png" => 5]);
 /**
  * MAIL
  */
-define("CONF_MAIL_HOST", "smtp.sendgrid.net");
+define("CONF_MAIL_HOST", "smtp.gmail.com");
 define("CONF_MAIL_PORT", "587");
-define("CONF_MAIL_USER", "apikey");
-define("CONF_MAIL_PASS", "**********");
-define("CONF_MAIL_SENDER", ["name" => "Name", "address" => "email@email.com"]);
-define("CONF_MAIL_SUPPORT", "email@email.com");
+define("CONF_MAIL_USER", "railanbernardoyt@gmail.com");
+define("CONF_MAIL_PASS", "ne@yo385x");
+define("CONF_MAIL_SENDER", ["name" => "Suporte", "address" => "railabernardo2016@gmail.com"]);
+define("CONF_MAIL_SUPPORT", "railanbernardoyt@gmail.com");
 define("CONF_MAIL_OPTION_LANG", "br");
 define("CONF_MAIL_OPTION_HTML", true);
 define("CONF_MAIL_OPTION_AUTH", true);

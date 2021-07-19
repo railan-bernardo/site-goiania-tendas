@@ -3,7 +3,8 @@
 namespace Source\Models;
 
 use Source\Core\Model;
-
+use Source\Core\View;
+use Source\Support\Email;
 /**
  * Class Service
  * @package Source\Models
@@ -19,6 +20,56 @@ class Contacts extends Model
     }
 
 
+   /**
+     * @param string $firstName
+     * @param string $email
+     * @param string $phone
+     * @param string $subject
+     * @param string|null $msg
+     * @return Contacts
+     */
+    public function bootstrap(
+        string $firstName,
+        string $email,
+        string $phone,
+        string $subject,
+        string $msg = null
+    ): Contacts {
+        $this->first_name = $firstName;
+        $this->email = $email;
+        $this->phone = $phone;
+        $this->subject = $subject;
+        $this->msg = $msg;
+        return $this;
+    }
+
+
+ /**
+     * @param Contacts $contacts
+     * @return bool
+     */
+    public function register(Contacts $contacts): bool
+    {
+        
+
+        $view = new View(__DIR__ . "/../../shared/views/email/");
+        $message = $view->render("contact", [
+            "first_name" => $contacts->first_name,
+            "email" => $contacts->email,
+              "phone" => $contacts->phone,
+              "subject" => $contacts->subject,
+               "msg" => $contacts->msg
+        ]);
+
+        (new Email())->bootstrap(
+            "Contato - " . CONF_SITE_NAME,
+            $message,
+            $contacts->email,
+            "{$contacts->first_name} "
+        )->send();
+
+        return true;
+    }
 
 
     /**

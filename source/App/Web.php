@@ -160,31 +160,33 @@ class Web extends Controller
     public function contactpost(?array $data): void
     {
 
-         //create
-        if (!empty($data["action"]) && $data["action"] == "create") {
+       //create
+            if (!empty($data["action"]) && $data["action"] == "create") {
             $data = filter_var_array($data, FILTER_SANITIZE_STRIPPED);
 
-            $postCreate = new Contacts();
-            $postCreate->first_name = $data["first_name"];
-            $postCreate->phone = ($data["phone"] ?? "vazio");
-            $postCreate->email = ($data["email"] ?? "vazio");
-            $postCreate->subject = ($data["subject"] ?? "vazio");
-            $postCreate->msg = ($data["msg"] ?? "vazio");
+            $postCretate = new Contacts();
+            $postBudget = $postCretate->bootstrap(
+             $data['first_name'],
+            $data['email'],
+           $data['phone'],
+            $data['subject'],
+            $data['msg']
+            );
 
-           
 
-            if (!$postCreate->save()) {
-                $json["message"] = $postCreate->message()->render();
-                echo json_encode($json);
-                return;
+    
+            if($postCretate->register($postBudget)){
+               
+            $this->message->success("Entraremos em contato...")->flash();
+
+            echo json_encode(["reload"=> true]);
+            return;
+            
             }
 
+            
 
-            $this->message->success("Recebemos seu contato..")->flash();
-            $json["redirect"] = url("/contato");
 
-            echo json_encode($json);
-            return;
         }
         $siteConfig =  site()->findById(1);
          $head = $this->seo->render(
@@ -457,37 +459,42 @@ class Web extends Controller
      */
     public function budgetPost(?array $data): void
     {
-         $post = (new Service())->findByUri($data['uri']);
+          $post = (new Service())->findByUri($data['uri']);
         //create
             if (!empty($data["action"]) && $data["action"] == "create") {
             $data = filter_var_array($data, FILTER_SANITIZE_STRIPPED);
 
             $postCretate = new Budget();
-            $postCretate->juridic = $data['juridic'];
-            $postCretate->first_name = $data['first_name'];
-            $postCretate->email = $data['email'];
-            $postCretate->telephone = $data['telephone'];
-            $postCretate->phone = $data['phone'];
-            $postCretate->state = $data['state'];
-            $postCretate->city = $data['city'];
-            $postCretate->address = $data['address'];
-            $postCretate->zipcode = $data['zipcode'];
-            $postCretate->company = $data['company'];
-            $postCretate->items = $data['items'];
-            $postCretate->msg = $data['msg'];
+            $postBudget = $postCretate->bootstrap(
+                $data['juridic'],
+             $data['first_name'],
+            $data['email'],
+           $data['telephone'],
+           $data['phone'],
+            $data['state'],
+            $data['city'],
+             $data['address'],
+            $data['zipcode'],
+            $data['company'],
+            $data['items'],
+            $data['msg']
+            );
 
 
-            if (!$postCretate->save()) {
-                $json["message"] = $postCretate->message()->render();
-                echo json_encode($json);
-                return;
-            }
-
+    
+            if($postCretate->register($postBudget)){
+               
             $this->message->success("Entraremos em contato...")->flash();
             $json["redirect"] = url("/produto/{$post->uri}");
 
             echo json_encode($json);
             return;
+            
+            }
+
+            
+
+
         }
 
         $siteConfig =  site()->findById(1);
