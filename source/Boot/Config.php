@@ -6,7 +6,7 @@
 define("CONF_DB_HOST", "localhost");
 define("CONF_DB_USER", "root");
 define("CONF_DB_PASS", "");
-define("CONF_DB_NAME", "goianiatendascom_admdb");
+define("CONF_DB_NAME", "db");
 
 /**
  * PROJECT URLs
@@ -86,10 +86,10 @@ define("CONF_IMAGE_QUALITY", ["jpg" => 75, "png" => 5]);
  */
 define("CONF_MAIL_HOST", "smtp.gmail.com");
 define("CONF_MAIL_PORT", "587");
-define("CONF_MAIL_USER", "railanbernardoyt@gmail.com");
-define("CONF_MAIL_PASS", "ne@yo385x");
-define("CONF_MAIL_SENDER", ["name" => "Suporte", "address" => "railabernardo2016@gmail.com"]);
-define("CONF_MAIL_SUPPORT", "railanbernardoyt@gmail.com");
+define("CONF_MAIL_USER", "connect@gmail.com");
+define("CONF_MAIL_PASS", "***");
+define("CONF_MAIL_SENDER", ["name" => "Suporte", "address" => "email@gmail.com"]);
+define("CONF_MAIL_SUPPORT", "suporte@gmail.com");
 define("CONF_MAIL_OPTION_LANG", "br");
 define("CONF_MAIL_OPTION_HTML", true);
 define("CONF_MAIL_OPTION_AUTH", true);
